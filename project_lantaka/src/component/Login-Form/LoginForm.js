@@ -13,11 +13,11 @@ export const LoginForm = () => {
         </div>
         <div className="form">
           <div className="input-wrapper">
-            <span className="LoginForm_icon"><FaEnvelope className=" animation a3"/></span>
+            <span className="LoginForm_icon"><FaEnvelope className=" animation a3" /></span>
             <input type="email" className="form-field animation a3" placeholder="Email Address" name="email" />
           </div>
           <div className="input-wrapper">
-             <span className="LoginForm_icon"><FaLock className=" animation a4"/></span>
+            <span className="LoginForm_icon"><FaLock className=" animation a4" /></span>
             <input type="password" className="form-field animation a4" placeholder="Password" name="password" />
           </div>
           <button type="submit" className="animation a5">LOGIN</button>
