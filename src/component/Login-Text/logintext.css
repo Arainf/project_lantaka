@@ -1,0 +1,22 @@
+.LoginText_body {
+  display: flex;
+  flex: 2;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.LoginText_logo {
+  width: 15vw;
+  height: auto;
+}
+
+.LoginText_headline {
+  color: #094067;
+}
+
+.LoginText_pharagprah {
+  color: #5f6c7b;
+}
