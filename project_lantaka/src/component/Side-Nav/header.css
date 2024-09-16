@@ -1,0 +1,74 @@
+/* Sidebar container */
+.sidebar {
+  height: 100vh;
+  width: 250px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #1b1b1b;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 20px;
+  color: #fff;
+}
+
+/* Profile section */
+.profile {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.profile-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.profile-name {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.profile-email {
+  font-size: 14px;
+  color: #ccc;
+}
+
+/* Navigation menu */
+.nav_menu {
+  flex-grow: 1;
+}
+
+.nav_list {
+  list-style: none;
+  padding: 0;
+}
+
+.nav_item {
+  margin-bottom: 20px;
+}
+
+.nav_item a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.nav_item a.active {
+  color: #ff5722;
+  /* Active link color */
+}
+
+.nav_item a:hover {
+  color: #ff5722;
+}
+
+/* Ensure rest of the content on the page is pushed to the right */
+body {
+  margin-left: 250px;
+  /* Width of the sidebar */
+}

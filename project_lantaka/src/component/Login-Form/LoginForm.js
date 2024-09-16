@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import { Container } from "reactstrap";
 import './loginform.css';
 import { FaEnvelope, FaLock } from "react-icons/fa";
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios'; // Import axios for making HTTP requests
 
 export const LoginForm = () => {
   // State management for input fields
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -15,7 +17,10 @@ export const LoginForm = () => {
     try {
       // Send data to the server
       const response = await axios.post('http://localhost:5000/login', { email, password });
-      alert(response.data.message); // Handle success response
+      console.log(response.data.message); // Handle success response
+      if (response.status === 200) {
+        navigate('/home');
+      }
     } catch (error) {
       console.error("There was an error!", error);
       alert("Login failed"); // Handle error response
