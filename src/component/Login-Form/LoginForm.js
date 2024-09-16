@@ -8,8 +8,8 @@ export const LoginForm = () => {
     <section className="LoginForm_body">
       <Container className="LoginForm_container">
         <div className="header">
-          <h2 className="animation a1">Welcome Back</h2>
-          <h4 className="animation a2">Log in to your account using email and password</h4>
+          <h2 className="animation a1">Hello Again!</h2>
+          <h4 className="animation a2">Welcome Back</h4>
         </div>
         <div className="form">
           <div className="input-wrapper">

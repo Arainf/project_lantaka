@@ -5,16 +5,22 @@
   justify-content: center;
   align-items: center;
   padding: 1rem;
+  animation-name: right;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+  animation-timing-function: ease-in-out;
+  animation-delay: 2s;
+  /* Adds a smooth transition effect */
   /* Add padding to ensure better spacing on smaller screens */
 }
 
 .LoginForm_container {
   display: flex;
   flex-direction: column;
-  align-items: center;
   text-align: center;
   max-width: 400px;
   width: 100%;
+  align-items: flex-start;
 }
 
 .header {
@@ -43,6 +49,7 @@
 
 .input-wrapper {
   margin: 1rem 0;
+  padding: 0;
   display: flex;
   position: relative;
   align-items: center;
@@ -107,9 +114,8 @@
 
 .animation {
   animation-name: move;
-  animation-duration: .4s;
+  animation-duration: .3s;
   animation-fill-mode: both;
-  animation-delay: 2s;
 }
 
 .a1 {
@@ -147,6 +153,23 @@
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
+  }
+}
+
+@keyframes right {
+  0% {
+    opacity: 0;
+    display: none;
+    flex: 0;
+    width: 0px;
+  }
+
+  100% {
+    opacity: 1;
+    width: 100%;
+    flex: 1;
+    display: flex;
+    visibility: visible;
   }
 }
 

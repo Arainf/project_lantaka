@@ -7,7 +7,7 @@ export const Login = () => {
   
   return (
     <Fragment >
-      <Container style={{display: 'flex', flexDirection: 'row',position: 'relative', width: '100vw', height: '100vh', overflow: 'hidden', background: '#fffffe'}}>
+      <Container style={{display: 'flex', flexDirection: 'row',position: 'relative', width: '100vw', height: '100vh', overflow: 'hidden', background: '#3da9fc'}}>
         <LoginText />
         <LoginForm />
       </Container>
