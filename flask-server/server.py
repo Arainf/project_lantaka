@@ -51,7 +51,9 @@ def login():
     user = users.query.filter_by(username=username, password=password).first()
     
     if user:
-        return jsonify({"message": "Login successful"}), 200
+        response = jsonify({"message": "Login successful"})
+        response.status_code = 200 
+        return response
     else:
         return jsonify({"message": "Invalid credentials"}), 401
 
