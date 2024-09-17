@@ -1,0 +1,73 @@
+/* Container for the whole form */
+.register-form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f2f5;
+  /* Light grey background */
+}
+
+/* Styling the register form */
+.register-form {
+  background-color: white;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  /* Light shadow effect */
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Heading of the form */
+.register-form h2 {
+  margin-bottom: 20px;
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  /* Darker text color */
+}
+
+/* Styling each form group (label + input) */
+.form-group {
+  margin-bottom: 20px;
+}
+
+/* Styling form labels */
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  font-family: 'Arial', sans-serif;
+  color: #555;
+}
+
+/* Styling input fields */
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  font-family: 'Arial', sans-serif;
+  background-color: #f9f9f9;
+  transition: border-color 0.3s ease-in-out;
+}
+
+/* Focus effect on input fields */
+.form-group input:focus {
+  outline: none;
+  border-color: #007bff;
+  /* Blue border on focus */
+}
+
+/* Styling the register button */
+.register-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 16px;
+}

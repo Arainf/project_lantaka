@@ -1,8 +1,9 @@
 /* Sidebar container */
 .sidebar {
   height: 100vh;
-  width: 250px;
-  position: fixed;
+  max-width: 220px;
+  width: 17vw;
+  position: relative;
   top: 0;
   left: 0;
   background-color: #1b1b1b;
@@ -13,28 +14,66 @@
   color: #fff;
 }
 
+.sidebar_instance {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: center;
+  justify-content: flex-start;
+  max-height: 7vh;
+  height: 42px;
+  width: auto;
+}
+
+.sidebar_text {
+  display: flex;
+}
+
 /* Profile section */
-.profile {
-  text-align: center;
-  margin-bottom: 20px;
+.profile-text {
+  display: flex;
+  flex-direction: column;
+  margin-left: 5%;
 }
 
 .profile-img {
-  width: 80px;
-  height: 80px;
+  width: 50px;
+  height: 40px;
   border-radius: 50%;
-  margin-bottom: 10px;
+  object-fit: cover;
+  transition: width 0.3s ease, height 0.3s ease;
 }
 
 .profile-name {
-  font-size: 18px;
+  font-size: 15px;
   font-weight: bold;
-  margin-bottom: 5px;
+  margin: 0;
 }
 
 .profile-email {
-  font-size: 14px;
+  font-size: 10px;
   color: #ccc;
+  margin: 0;
+}
+
+.profile-details {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+}
+
+.profile-logout-button {
+  rotate: 180deg;
+  padding: 5px 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  border: none;
+  height: 30px;
+  width: 35px;
 }
 
 /* Navigation menu */
@@ -48,7 +87,7 @@
 }
 
 .nav_item {
-  margin-bottom: 20px;
+  margin-left: 10px;
 }
 
 .nav_item a {
@@ -67,8 +106,7 @@
   color: #ff5722;
 }
 
-/* Ensure rest of the content on the page is pushed to the right */
-body {
-  margin-left: 250px;
-  /* Width of the sidebar */
+/* More Info */
+.info_menu {
+  display: flex;
 }
