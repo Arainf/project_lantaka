@@ -7,7 +7,9 @@ import { FaIdBadge, FaHome } from "react-icons/fa";
 import { FaCalendarPlus, FaCircleQuestion } from "react-icons/fa6";
 import { IoSettingsSharp } from "react-icons/io5";
 import { TbBrandReact } from "react-icons/tb";
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+
 
 
 
@@ -48,12 +50,18 @@ const navMoreInfo = [
 ]
 
 export const Header = () => {
+  const navigate = useNavigate();
 
   const [profile, setProfile] = useState({
     imageUrl: "", // Will be dynamically fetched
     name: "",
     email: ""
   });
+
+  const handleLogout = () => {
+    // Perform any logout logic here if needed (e.g., clearing tokens)
+    navigate('/');  // Redirect to the login page
+  };
 
   // Fetch admin profile from server
   useEffect(() => {
@@ -86,7 +94,10 @@ export const Header = () => {
               <h4 className="profile-name">{profile.name}</h4>
               <p className="profile-email">{profile.email}</p>
             </div>
-            <button className='profile-logout-button'><SlLogout></SlLogout></button>
+            <button
+              onClick={handleLogout}
+              className='profile-logout-button'><SlLogout></SlLogout>
+            </button>
           </div>
         </div>
 
@@ -94,17 +105,15 @@ export const Header = () => {
         <div className="nav_menu">
           <ul className="nav_list">
             {navLinks.map((item, index) => (
-              <div className='sidebar_instance'>
+              <NavLink
+                to={item.url}
+                className={({ isActive }) => `sidebar_instance ${isActive ? "active" : ""}`}
+              >
                 {item.icon}
                 <li key={index} className="nav_item">
-                  <NavLink
-                    to={item.url}
-                    className={({ isActive }) => (isActive ? "active" : "")}
-                  >
-                    {item.display}
-                  </NavLink>
+                  {item.display}
                 </li>
-              </div>
+              </NavLink>
             ))}
           </ul>
         </div>

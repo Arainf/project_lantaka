@@ -23,6 +23,12 @@
   max-height: 7vh;
   height: 42px;
   width: auto;
+  text-decoration: none;
+  color: #ccc;
+}
+
+.sidebar_instance.active {
+  background: linear-gradient(90deg, rgba(107, 112, 255, 0.304) 51%, hsla(295, 100%, 84%, 1) 100%);
 }
 
 .sidebar_text {
@@ -74,6 +80,32 @@
   border: none;
   height: 30px;
   width: 35px;
+}
+
+.profile-logout-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  /* Smooth transition */
+}
+
+.profile-logout-button:hover {
+  background-color: #f0f0f0;
+  /* Change the background color on hover */
+  transform: scale(1.1);
+  /* Slightly enlarge the icon */
+}
+
+.profile-logout-button svg {
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.profile-logout-button:hover svg {
+  color: #e74c3c;
+  /* Change icon color on hover */
 }
 
 /* Navigation menu */

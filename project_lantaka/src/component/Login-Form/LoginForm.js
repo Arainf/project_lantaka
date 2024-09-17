@@ -59,7 +59,7 @@ export const LoginForm = () => {
               required
             />
           </div>
-          <button type="submit" className="animation a5">LOGIN</button>
+          <button type="submit" className="button-27 animation a5">LOGIN</button>
           <p className="animation a6"><a href="#">Forgot Password</a></p>
         </form>
       </Container>
