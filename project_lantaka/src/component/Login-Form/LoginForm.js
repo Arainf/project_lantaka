@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Container } from "reactstrap";
+import WaveHand from './asset-login-form/wave.gif';
 import './loginform.css';
 import { FaEnvelope, FaLock } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
@@ -10,6 +11,52 @@ export const LoginForm = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [fadeClass, setFadeClass] = useState("fade-in"); // Initial fade class
+
+  // State for greeting
+  const greetings = [
+    "Student!",
+    "Professor!",
+    "Ma'am!",
+    "Sir!",
+    "Admin!",
+    "Scholar!",
+    "Researcher!",
+    "Dean!",
+    "Mentor!",
+    "Classmate!",
+    "Instructor!",
+    "Lecturer!",
+    "Coordinator!",
+    "Advisor!",
+    "Graduate!",
+    "Undergraduate!",
+    "Counselor!",
+    "Leader!",
+    "Fellow!",
+    "Colleague!"
+  ];
+
+
+  const [greeting, setGreeting] = useState(greetings[0]); // Initialize with the first greeting
+
+  // Change greeting every 5 seconds
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setFadeClass("fade-out");
+      setTimeout(() => {
+        setGreeting(prevGreeting => {
+          const currentIndex = greetings.indexOf(prevGreeting);
+          const nextIndex = (currentIndex + 1) % greetings.length; // Loop back to the start
+          return greetings[nextIndex];
+        });
+        setFadeClass("fade-in");
+      }, 500); // Match this duration with your CSS fade-out transition time
+    }, 2000); // 2 seconds delay
+
+    return () => clearInterval(intervalId); // Cleanup interval on unmount
+  }, []); // Empty dependency array to run only on mount
+
 
   // Handle form submission
   const handleSubmit = async (event) => {
@@ -31,8 +78,11 @@ export const LoginForm = () => {
     <section className="LoginForm_body">
       <Container className="LoginForm_container">
         <div className="header">
-          <h2 className="animation a1">Hello Again!</h2>
-          <h4 className="animation a2">Welcome Back</h4>
+          <div className="header_div animation a1">
+            <h2 className="">Hello Again!</h2>
+            <img src={WaveHand} alt="My GIF" />
+          </div>
+          <h4 className="animation a2">Welcome Back <strong className={'${fadeClass}'} style={{ color: '#ef4565' }}>{greeting}</strong></h4> {/* Dynamic greeting */}
         </div>
         <form className="form" onSubmit={handleSubmit}>
           <div className="input-wrapper">

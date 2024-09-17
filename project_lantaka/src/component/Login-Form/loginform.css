@@ -27,12 +27,26 @@
   text-align: left;
 }
 
-.header>h2 {
+.header>div {
   margin: 0;
   color: whitesmoke;
   font-size: 2rem;
   font-weight: bold;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0;
+  max-height: 50px;
 }
+
+.header>div>img {
+  width: 3vw;
+  height: 5vh;
+  transform: scaleX(-1);
+  margin-left: 20px;
+}
+
+
 
 .header>h4 {
   margin-top: 10px;
@@ -182,6 +196,19 @@
 
 .a6 {
   animation-delay: 2.5s;
+}
+
+/* loginform.css */
+.greeting {
+  transition: opacity 0.5s ease-in-out;
+}
+
+.fade-in {
+  opacity: 1;
+}
+
+.fade-out {
+  opacity: 0;
 }
 
 @keyframes move {
