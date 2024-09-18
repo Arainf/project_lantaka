@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Container } from 'reactstrap';
-import './header.css';
+import './sidebar.css';
 import { NavLink } from "react-router-dom";
 import { SlLogout } from "react-icons/sl";
 import { FaIdBadge, FaHome } from "react-icons/fa";
@@ -49,7 +49,7 @@ const navMoreInfo = [
   },
 ]
 
-export const Header = () => {
+export const SideBar = () => {
   const navigate = useNavigate();
 
   const [profile, setProfile] = useState({
@@ -142,4 +142,4 @@ export const Header = () => {
   );
 }
 
-export default Header;
+export default SideBar;

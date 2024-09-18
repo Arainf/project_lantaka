@@ -1,0 +1,34 @@
+.header_body {
+  background-color: #00205B;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  height: 50px;
+  width: 100vw;
+  color: #fff;
+}
+
+.menu {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0 20px;
+}
+
+.header_div1 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+}
+
+.header_div1>h1 {
+  font-size: 1rem;
+  margin: 0 10px;
+}
+
+.profile>h1 {
+  font-size: 1rem;
+}
