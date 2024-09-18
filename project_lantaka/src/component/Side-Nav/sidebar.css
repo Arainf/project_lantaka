@@ -6,14 +6,18 @@
   position: relative;
   top: 0;
   left: 0;
-  background-color: #1b1b1b;
+  background-color: #001f3f;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding: 20px;
+  padding: 0;
   color: #fff;
+  box-shadow: 3px 0px 19px 0px rgba(13, 13, 13, 1);
+  transition: width 0.8s ease;
+  /* Smooth transition for width */
 }
 
+/* Sidebar instance */
 .sidebar_instance {
   display: flex;
   flex-direction: row;
@@ -25,87 +29,86 @@
   width: auto;
   text-decoration: none;
   color: #ccc;
+  margin: 15px;
+  transition: color 0.8s ease, padding 0.8s ease;
+  /* Smooth transition for color and padding */
 }
 
+/* Sidebar instance active state */
 .sidebar_instance.active {
-  background: linear-gradient(90deg, rgba(107, 112, 255, 0.304) 51%, hsla(295, 100%, 84%, 1) 100%);
+  color: #ffcc00;
 }
 
-.sidebar_text {
-  display: flex;
+/* Sidebar instance hover state */
+.sidebar_instance:hover {
+  color: #ffcc00;
 }
 
-/* Profile section */
-.profile-text {
-  display: flex;
-  flex-direction: column;
-  margin-left: 5%;
+/* Sidebar instance after pseudo-element */
+.sidebar_instance::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0.2rem;
+  background-color: #F4B942;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border-radius: 20px;
+  transition: width 0.3s ease;
+  /* Smooth transition for underline width */
 }
 
-.profile-img {
-  width: 50px;
-  height: 40px;
-  border-radius: 50%;
-  object-fit: cover;
-  transition: width 0.3s ease, height 0.3s ease;
-}
-
-.profile-name {
-  font-size: 15px;
-  font-weight: bold;
-  margin: 0;
-}
-
-.profile-email {
-  font-size: 10px;
-  color: #ccc;
-  margin: 0;
-}
-
-.profile-details {
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row;
-  align-items: center;
+.sidebar_instance.active::after {
   width: 100%;
 }
 
-.profile-logout-button {
-  rotate: 180deg;
-  padding: 5px 5px;
+.sidebar_instance:hover::after {
+  width: 100%;
+}
+
+/* Sidebar primary section */
+.sidebar_primary {
   display: flex;
-  justify-content: center;
+  flex-direction: row;
+  position: relative;
   align-items: center;
-  border-radius: 5px;
-  border: none;
-  height: 30px;
-  width: 35px;
+  justify-content: flex-start;
+  max-height: 7vh;
+  height: 42px;
+  width: auto;
+  text-decoration: none;
+  color: #ccc;
+  margin: 15px;
+  transition: color 0.8s ease;
+  /* Smooth transition for color */
 }
 
-.profile-logout-button {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 10px;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  /* Smooth transition */
+.sidebar_primary>h1 {
+  font-size: .8rem;
+  margin: 0 10px;
+  color: #fff;
+  transition: all 1s ease;
+  z-index: 2;
+  /* Smooth transition for opacity and visibility */
 }
 
-.profile-logout-button:hover {
-  background-color: #f0f0f0;
-  /* Change the background color on hover */
-  transform: scale(1.1);
-  /* Slightly enlarge the icon */
+/* Hide text when collapsed */
+h1.closed {
+  opacity: 0;
+  z-index: -3;
+  /* Ensure opacity transition */
+  transition: all .5s ease;
+  /* Smooth transition for opacity and visibility */
 }
 
-.profile-logout-button svg {
-  font-size: 1.5rem;
-  color: #333;
-}
-
-.profile-logout-button:hover svg {
-  color: #e74c3c;
-  /* Change icon color on hover */
+/* Sidebar logo */
+.sidebar_logo {
+  width: 50px;
+  height: 50px;
+  object-fit: fill;
+  transition: width 0.8s ease, height 0.8s ease;
+  /* Smooth transition for logo size */
 }
 
 /* Navigation menu */
@@ -118,15 +121,20 @@
   padding: 0;
 }
 
+/* Nav item */
 .nav_item {
   margin-left: 10px;
+  transition: opacity 0.8s ease, margin-left 0.8s ease;
+  /* Smooth transition for text visibility */
 }
 
+/* Nav item link */
 .nav_item a {
   text-decoration: none;
   color: #fff;
   font-size: 16px;
-  transition: color 0.3s ease;
+  transition: color 0.8s ease;
+  /* Smooth transition for link color */
 }
 
 .nav_item a.active {
@@ -141,4 +149,42 @@
 /* More Info */
 .info_menu {
   display: flex;
+  transition: justify-content 0.8s ease;
+  /* Smooth transition for alignment */
+}
+
+/* Closed state */
+.sidebar.closed {
+  width: 80px;
+  /* Collapsed width */
+  transition: width 0.8s ease;
+  /* Smooth transition for width */
+}
+
+.nav_item.closed {
+  display: none;
+  justify-content: center;
+  opacity: 0;
+  /* Ensure opacity transition */
+  transition: opacity 0.8s ease, margin-left 0.8s ease;
+  /* Smooth transition for text visibility */
+}
+
+.sidebar_instance.closed .icon {
+  font-size: 25px;
+  justify-content: center;
+  transition: font-size 0.8s ease;
+  /* Smooth transition for icon size */
+}
+
+.sidebar_instance.closed {
+  justify-content: center;
+  transition: justify-content 0.8s ease;
+  /* Smooth transition for alignment */
+}
+
+.info_menu.closed {
+  justify-content: center;
+  transition: justify-content 0.8s ease;
+  /* Smooth transition for alignment */
 }

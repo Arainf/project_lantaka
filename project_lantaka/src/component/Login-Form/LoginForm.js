@@ -61,6 +61,11 @@ export const LoginForm = () => {
       const response = await axios.post('http://localhost:5000/login', { email, password });
       console.log(response.data.message); // Handle success response
       if (response.status === 200) {
+        const { admin_id } = response.data;
+
+        // Store admin_id in localStorage
+        localStorage.setItem('admin_id', admin_id);
+
         navigate('/home');
       }
     } catch (error) {

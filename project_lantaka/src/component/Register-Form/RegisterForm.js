@@ -36,7 +36,7 @@ export const RegisterForm = () => {
 
       console.log(response.data.message); // Handle success response
       if (response.status === 201) {
-        navigate('/login'); // Redirect to login page after successful registration
+        navigate('/home'); // Redirect to login page after successful registration
       }
     } catch (error) {
       console.error("There was an error!", error);

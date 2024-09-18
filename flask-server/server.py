@@ -100,7 +100,7 @@ def login():
     user = administrator.query.filter_by(admin_email=email).first()
     
     if user and bcrypt.checkpw(password.encode('utf-8'), user.admin_password.encode('utf-8')):
-        return jsonify({"message": "Login successful"}), 200
+        return jsonify({"message": "Login successful", "admin_id": user.admin_id}), 200
     else:
         return jsonify({"message": "Invalid credentials"}), 401
 

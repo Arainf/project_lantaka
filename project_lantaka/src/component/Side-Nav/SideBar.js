@@ -1,31 +1,27 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Container } from 'reactstrap';
 import './sidebar.css';
 import { NavLink } from "react-router-dom";
-import { SlLogout } from "react-icons/sl";
 import { FaIdBadge, FaHome } from "react-icons/fa";
 import { FaCalendarPlus, FaCircleQuestion } from "react-icons/fa6";
 import { IoSettingsSharp } from "react-icons/io5";
 import { TbBrandReact } from "react-icons/tb";
-import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
-
-
+import AteneoLogo from './asset-side-nav/AteneoLogo.png';
 
 
 const navLinks = [
   {
-    icon: <FaHome />,
+    icon: <FaHome className="icon" />,
     display: "Home",
     url: "/home"
   },
   {
-    icon: <FaIdBadge />,
+    icon: <FaIdBadge className="icon" />,
     display: "Accounts",
     url: "/about"
   },
   {
-    icon: <FaCalendarPlus />,
+    icon: <FaCalendarPlus className="icon" />,
     display: "Reservation",
     url: "/game"
   },
@@ -33,72 +29,29 @@ const navLinks = [
 
 const navMoreInfo = [
   {
-    icon: <FaCircleQuestion />,
+    icon: <FaCircleQuestion className="icon" />,
     display: "Support",
     url: "/"
   },
   {
-    icon: <IoSettingsSharp />,
+    icon: <IoSettingsSharp className="icon" />,
     display: "Setting",
     url: "/about"
   },
   {
-    icon: <TbBrandReact />,
+    icon: <TbBrandReact className="icon" />,
     display: "Version",
     url: "/game"
   },
 ]
 
-export const SideBar = () => {
-  const navigate = useNavigate();
-
-  const [profile, setProfile] = useState({
-    imageUrl: "", // Will be dynamically fetched
-    name: "",
-    email: ""
-  });
-
-  const handleLogout = () => {
-    // Perform any logout logic here if needed (e.g., clearing tokens)
-    navigate('/');  // Redirect to the login page
-  };
-
-  // Fetch admin profile from server
-  useEffect(() => {
-    const fetchProfile = async () => {
-      try {
-        const response = await axios.get('http://localhost:5000/api/profile/1');  // Replace '1' with dynamic admin ID
-        const data = response.data;
-        setProfile({
-          imageUrl: data.imageUrl || "https://via.placeholder.com/150", // Default image if no image available
-          name: `${data.firstName}`,
-          email: data.email,
-        });
-      } catch (error) {
-        console.error("Error fetching profile:", error);
-      }
-    };
-
-    fetchProfile();
-  }, []);
-
+export const SideBar = ({ isOpen }) => {
   return (
     <Container>
-      <div className="sidebar">
-
-        {/* profile section */}
-        <div className='sidebar_instance'>
-          <img src={profile.imageUrl} alt="Profile" className="profile-img" />
-          <div className='profile-details'>
-            <div className='profile-text'>
-              <h4 className="profile-name">{profile.name}</h4>
-              <p className="profile-email">{profile.email}</p>
-            </div>
-            <button
-              onClick={handleLogout}
-              className='profile-logout-button'><SlLogout></SlLogout>
-            </button>
-          </div>
+      <div className={`sidebar  ${isOpen ? 'open' : 'closed'}`}>
+        <div className='sidebar_primary'>
+          <img className='sidebar_logo' src={AteneoLogo} alt="AteneoSeal" />
+          <h1 className={` ${isOpen ? 'open' : 'closed'}`}>LANTAKA ROOM RESERVATION</h1>
         </div>
 
         {/* Naviagtion section */}
@@ -107,10 +60,10 @@ export const SideBar = () => {
             {navLinks.map((item, index) => (
               <NavLink
                 to={item.url}
-                className={({ isActive }) => `sidebar_instance ${isActive ? "active" : ""}`}
+                className={({ isActive }) => `sidebar_instance ${isActive ? 'active' : ''} ${isOpen ? 'open' : 'closed'}`}
               >
                 {item.icon}
-                <li key={index} className="nav_item">
+                <li key={index} className={`nav_item  ${isOpen ? 'open' : 'closed'}`}>
                   {item.display}
                 </li>
               </NavLink>
@@ -119,12 +72,12 @@ export const SideBar = () => {
         </div>
 
         {/* More Infos */}
-        <div className="info_menu">
+        <div className={`info_menu  ${isOpen ? 'open' : 'closed'}`}>
           <ul className="nav_list">
             {navMoreInfo.map((item, index) => (
-              <div className='sidebar_instance'>
+              <div className={`sidebar_instance ${isOpen ? 'open' : 'closed'}`}>
                 {item.icon}
-                <li key={index} className="nav_item">
+                <li key={index} className={`nav_item  ${isOpen ? 'open' : 'closed'}`}>
                   <NavLink
                     to={item.url}
                     className={({ isActive }) => (isActive ? "active" : "")}
