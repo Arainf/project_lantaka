@@ -18,7 +18,7 @@ const navLinks = [
   {
     icon: <FaIdBadge className="icon" />,
     display: "Accounts",
-    url: "/about"
+    url: "/account"
   },
   {
     icon: <FaCalendarPlus className="icon" />,
@@ -50,7 +50,7 @@ export const SideBar = ({ isOpen }) => {
     <Container>
       <div className={`sidebar  ${isOpen ? 'open' : 'closed'}`}>
         <div className='sidebar_primary'>
-          <img className='sidebar_logo' src={AteneoLogo} alt="AteneoSeal" />
+          <img className={`sidebar_logo ${isOpen ? 'open' : 'closed'}`} src={AteneoLogo} alt="AteneoSeal" />
           <h1 className={` ${isOpen ? 'open' : 'closed'}`}>LANTAKA ROOM RESERVATION</h1>
         </div>
 

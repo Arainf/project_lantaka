@@ -2,6 +2,7 @@ import os
 import bcrypt
 import base64
 from flask import Flask, request, jsonify
+from waitress import serve
 from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
 from conn import conn  # Importing the SQLite connection from conn.py
@@ -104,8 +105,11 @@ def login():
     else:
         return jsonify({"message": "Invalid credentials"}), 401
 
-
+mode = 'dev'
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    if (mode == 'dev'):
+        app.run(debug=True)
+    else:
+        serve(app, host='localhost',port=5000, threads=1)

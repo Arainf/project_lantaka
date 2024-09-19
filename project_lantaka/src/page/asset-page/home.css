@@ -1,0 +1,17 @@
+.home_body {
+  display: flex;
+  margin: 20px;
+  flex-direction: column;
+  flex: 1;
+  height: auto;
+}
+
+.home_title {
+  display: flex;
+  margin: 10px 0;
+}
+
+.home_div1 {
+  display: flex;
+  margin: 5px 0;
+}

@@ -6,7 +6,7 @@ import Header from '../component/Header/Header';
 import { Col, Container } from 'reactstrap';
 import './asset-page/home.css';
 
-export const Home = ({ sidebarOpen, toggleSidebar }) => {
+export const Account = ({ sidebarOpen, toggleSidebar }) => {
   return (
     <Fragment>
       <Container style={{ display: 'flex', flexDirection: 'row', overflow: 'hidden', position: 'relative', maxWidth: '100vw' }}>
@@ -15,7 +15,7 @@ export const Home = ({ sidebarOpen, toggleSidebar }) => {
           <Header onSidebarToggle={toggleSidebar} />
           <div className='home_body'>
             <div className='home_title'>
-              <Title location={'Dashboard'} breadcrumb={'home / dashboard'} />
+              <Title location={'Dashboard'} breadcrumb={'account / dashboard'} />
             </div>
             <div className='home_div1'>
               <RegisterForm />
@@ -27,4 +27,4 @@ export const Home = ({ sidebarOpen, toggleSidebar }) => {
   );
 };
 
-export default Home;
+export default Account;
