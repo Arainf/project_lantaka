@@ -1,0 +1,31 @@
+.LoginText_body {
+  display: flex;
+  flex: 2;
+  width: 100%;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  background: url('./asset-login-text/AteneoBG.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  box-shadow: 0 0 200px rgba(0, 0, 0, 0.9) inset;
+  /* border: 10px solid #3da9fc;
+  border-radius: 30px; */
+  overflow: hidden;
+  transition: 1s;
+}
+
+.LoginText_logo {
+  width: 15vw;
+  height: auto;
+}
+
+.LoginText_headline {
+  color: #094067;
+}
+
+.LoginText_pharagprah {
+  color: #5f6c7b;
+}

@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react';
 import { Container } from "reactstrap";
-import LoginForm from '../component/Login-Form/LoginForm';
-import LoginText from '../component/Login-Text/LoginText';
-import Footer from '../component/Footer/Footer';
+import LoginForm from '../components/Login-Form/LoginForm';
+import LoginText from '../components/Login-Text/LoginText';
+import Footer from '../components/Footer/Footer';
 
 export const Login = () => {
 

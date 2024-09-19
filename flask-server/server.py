@@ -7,14 +7,6 @@ from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
 from conn import conn  # Importing the SQLite connection from conn.py
 
-# Create a cursor object using the imported connection
-# cursor = conn.cursor()
-
-# # Execute a sample query to check the connection
-# cursor.execute('SELECT * FROM users')
-# results = cursor.fetchall()
-# print(results)  # Print the query results to verify connection
-
 app = Flask(__name__)
 CORS(app)
 
@@ -24,13 +16,15 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 # Define the Administrator model
-class administrator(db.Model):
+class administrator(db.Model):  # Renamed class to follow PEP 8 naming conventions
     admin_id = db.Column(db.Integer, primary_key=True)
+    admin_role = db.Column(db.String(50), nullable=False)  # New column for role
     admin_email = db.Column(db.String(100), unique=True, nullable=False)
     admin_img = db.Column(db.LargeBinary, nullable=True)  # Blob for image
     admin_firstName = db.Column(db.String(100), nullable=False)
     admin_surName = db.Column(db.String(100), nullable=False)
     admin_password = db.Column(db.String(100), nullable=False)
+   
 
 
 
@@ -84,11 +78,13 @@ def get_admin_profile(admin_id):
             "id": admin.admin_id,
             "email": admin.admin_email,
             "firstName": admin.admin_firstName,
-            "imageUrl": image_url  # Send the base64 string to the frontend
+            "imageUrl": image_url,  # Send the base64 string to the frontend
+            "role": admin.admin_role  # Include role in profile data
         }
         return jsonify(profile_data), 200
     else:
         return jsonify({"error": "Admin not found"}), 404
+
     
 
 @app.route('/login', methods=['POST'])
@@ -101,7 +97,11 @@ def login():
     user = administrator.query.filter_by(admin_email=email).first()
     
     if user and bcrypt.checkpw(password.encode('utf-8'), user.admin_password.encode('utf-8')):
-        return jsonify({"message": "Login successful", "admin_id": user.admin_id}), 200
+        return jsonify({
+            "message": "Login successful",
+            "admin_id": user.admin_id,
+            "role": user.admin_role  # Include role in the response
+        }), 200
     else:
         return jsonify({"message": "Invalid credentials"}), 401
 

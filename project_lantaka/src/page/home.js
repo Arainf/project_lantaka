@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react';
-import SideBar from '../component/Side-Nav/SideBar';
-import RegisterForm from '../component/Register-Form/RegisterForm';
-import Title from '../component/Title/Title';
-import Header from '../component/Header/Header';
+import SideBar from '../components/Side-Nav/SideBar';
+import RegisterForm from '../components/Register-Form/RegisterForm';
+import Title from '../components/Title/Title';
+import Header from '../components/Header/Header';
 import { Col, Container } from 'reactstrap';
 import './asset-page/home.css';
 
