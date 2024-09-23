@@ -23,7 +23,7 @@ const navLinks = [
   {
     icon: <FaCalendarPlus className="icon" />,
     display: "Reservation",
-    url: "/game"
+    url: "/reservation"
   },
 ];
 

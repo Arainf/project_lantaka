@@ -26,8 +26,6 @@ class administrator(db.Model):  # Renamed class to follow PEP 8 naming conventio
     admin_password = db.Column(db.String(100), nullable=False)
    
 
-
-
 # Register route
 @app.route('/register', methods=['POST'])
 def register():
@@ -110,6 +108,6 @@ mode = 'dev'
 
 if __name__ == '__main__':
     if (mode == 'dev'):
-        app.run(debug=True)
+        app.run(host='0.0.0.0', debug=True)
     else:
         serve(app, host='localhost',port=5000, threads=1)

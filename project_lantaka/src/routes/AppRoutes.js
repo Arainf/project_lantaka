@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from '../page/home'
 import Login from '../page/login';
 import Account from '../page/account';
+import Reservation from '../page/reservation';
 
 function AppRoutes() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -17,6 +18,7 @@ function AppRoutes() {
       <Route path="/" element={<Login />} />
       <Route path="/home" element={<Home sidebarOpen={sidebarOpen} toggleSidebar={toggleSidebar} />} />
       <Route path="/account" element={<Account sidebarOpen={sidebarOpen} toggleSidebar={toggleSidebar} />} />
+      <Route path="/reservation" element={<Reservation sidebarOpen={sidebarOpen} toggleSidebar={toggleSidebar} />} />
     </Routes>
   );
 }
